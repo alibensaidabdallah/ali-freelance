@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#08172e">
+<meta name="description" content="Ali Ben Said Abdallah — assistance virtuelle, services numériques, création web et support informatique.">
+<title>Ali Ben Said Abdallah | Virtual Assistant</title>
+<style>
+:root {
+  --navy:#08172e; --blue:#1769d2; --pale:#edf4ff;
+  --ink:#17253b; --muted:#627087; --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.65}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{background:var(--navy);color:white;position:sticky;top:0;z-index:10}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{font-weight:800;letter-spacing:.3px;line-height:1.3}
+.brand small{display:block;color:#a9c9ff;font-size:11px;letter-spacing:1.5px;margin-top:5px}
+.navlinks{display:flex;align-items:center;gap:22px;font-size:14px}
+.navlinks a:hover{color:#a9c9ff}
+.lang{background:#152b4a;color:white;border:1px solid #476080;border-radius:8px;padding:9px}
+.menu{display:none;background:transparent;color:white;border:1px solid #476080;border-radius:8px;padding:8px}
+.hero{background:linear-gradient(130deg,#08172e 5%,#123867 100%);color:white;padding:90px 0 80px}
+.hero-grid{display:grid;grid-template-columns:1.4fr .8fr;align-items:center;gap:50px}
+.eyebrow{color:#a9c9ff;font-weight:bold;letter-spacing:2px;font-size:12px;text-transform:uppercase}
+h1{font-size:clamp(36px,5.2vw,61px);line-height:1.08;letter-spacing:-1.8px;margin:18px 0}
+.hero p{color:#d0dcef;font-size:18px;max-width:640px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;padding:13px 19px;border-radius:9px;font-weight:bold;border:1px solid transparent;cursor:pointer}
+.primary{background:#fff;color:var(--navy)}
+.secondary{border-color:#8ba9d0;color:white}
+.blue{background:var(--blue);color:white}
+.hero-card{background:#fff;color:var(--ink);border-radius:20px;padding:28px;box-shadow:0 22px 60px #0003}
+.avatar{width:62px;height:62px;border-radius:16px;background:var(--pale);color:var(--blue);display:grid;place-items:center;font-size:27px;font-weight:800}
+.hero-card h3{margin-bottom:4px}
+.hero-card p{font-size:14px;color:var(--muted)}
+.tag{display:inline-block;background:var(--pale);color:#164e9a;border-radius:20px;padding:6px 10px;margin:4px;font-size:12px}
+section{padding:76px 0}
+.section-head{max-width:680px;margin-bottom:32px}
+h2{font-size:clamp(27px,3.6vw,39px);line-height:1.2;margin:10px 0 14px}
+.section-head p,.muted{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card{padding:25px;border:1px solid #e0e7f1;border-radius:15px;background:#fff}
+.card .symbol{font-size:27px}
+.card h3{margin:12px 0 8px}
+.card p{color:var(--muted);margin:0}
+.about{background:#f5f8fd}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.checks{padding:0;list-style:none}
+.checks li{margin:12px 0}
+.checks li:before{content:"✓";color:var(--blue);font-weight:bold;margin-right:10px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step{padding:22px;border-radius:14px;background:var(--pale)}
+.step b{color:var(--blue);font-size:13px}
+.contact{background:#f5f8fd}
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px;align-items:start}
+.contact-links{display:grid;gap:12px;margin-top:22px}
+.contact-link{padding:14px;background:white;border:1px solid #e0e7f1;border-radius:10px}
+form{background:white;padding:27px;border:1px solid #e0e7f1;border-radius:16px}
+label{display:block;font-weight:bold;font-size:13px;margin:13px 0 6px}
+input,textarea,select{width:100%;border:1px solid #ccd6e4;border-radius:8px;padding:12px;background:#fff;color:var(--ink)}
+textarea{min-height:125px;resize:vertical}
+.note{font-size:12px;color:var(--muted)}
+footer{background:var(--navy);color:#d0dcef;padding:30px 0;font-size:13px}
+.footer-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:780px){
+ .hero{padding:62px 0}
+ .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+ .hero-grid{gap:30px}
+ .navlinks{display:none;position:absolute;top:76px;left:0;right:0;background:var(--navy);padding:20px;flex-direction:column;align-items:stretch}
+ .navlinks.open{display:flex}
+ .menu{display:block}
+ .cards{grid-template-columns:1fr}
+ .steps{grid-template-columns:1fr}
+ .hero-card{max-width:500px}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="container nav">
+  <a class="brand" href="#home">ALI BEN SAID ABDALLAH
+   <small>VIRTUAL ASSISTANT · DIGITAL SERVICES</small>
+  </a>
+  <nav class="navlinks" id="navlinks">
+   <a href="#services" data-i="navServices">Services</a>
+   <a href="#about" data-i="navAbout">À propos</a>
+   <a href="#contact" data-i="navContact">Contact</a>
+   <select class="lang" id="language" aria-label="Language">
+    <option value="fr">FR</option><option value="en">EN</option>
+    <option value="mg">MG</option>
+   </select>
+  </nav>
+  <button class="menu" id="menu" aria-label="Ouvrir le menu">☰</button>
+ </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+ <div class="container hero-grid">
+  <div>
+   <div class="eyebrow" data-i="eyebrow">Votre partenaire numérique</div>
+   <h1 data-i="headline">Plus de temps pour votre activité. Moins de tâches à gérer.</h1>
+   <p data-i="intro">Je vous accompagne dans la gestion administrative, la relation client et vos besoins numériques, à distance et selon vos priorités.</p>
+   <div class="actions">
+    <a href="#contact" class="btn primary" data-i="cta">Demander un devis ↗</a>
+    <a href="#services" class="btn secondary" data-i="discover">Découvrir mes services</a>
+   </div>
+  </div>
+  <div class="hero-card">
+   <div class="avatar">AB</div>
+   <h3>Ali Ben Said Abdallah</h3>
+   <p data-i="role">Assistant virtuel polyvalent & support numérique</p>
+   <span class="tag">Français</span><span class="tag">English</span><span class="tag">Malagasy</span>
+   <hr style="border:0;border-top:1px solid #e0e7f1;margin:20px 0">
+   <strong data-i="available">Disponible pour étudier votre projet</strong>
+   <p data-i="availability">Chaque demande est étudiée selon vos besoins, votre calendrier et votre budget.</p>
+  </div>
+ </div>
+</section>
+
+<section id="services">
+ <div class="container">
+  <div class="section-head">
+   <div class="eyebrow" data-i="servicesEyebrow">Mes expertises</div>
+   <h2 data-i="servicesTitle">Des services adaptés à votre activité</h2>
+   <p data-i="servicesIntro">Un accompagnement flexible pour entrepreneurs, indépendants et petites entreprises.</p>
+  </div>
+  <div class="cards">
+   <article class="card"><div class="symbol">✉️</div><h3 data-i="s1">Assistance virtuelle et administrative</h3><p data-i="d1">Gestion des e-mails, organisation d'agenda, saisie de données, documents et tâches administratives.</p></article>
+   <article class="card"><div class="symbol">🎧</div><h3 data-i="s2">Relation client et assistance</h3><p data-i="d2">Suivi des demandes, réponses aux clients, appels et assistance à distance selon vos consignes.</p></article>
+   <article class="card"><div class="symbol">💻</div><h3 data-i="s3">Web et support informatique</h3><p data-i="d3">Création de sites web, dépannage, aide aux outils numériques et accompagnement informatique.</p></article>
+   <article class="card"><div class="symbol">🎓</div><h3 data-i="s4">Formation numérique</h3><p data-i="d4">Initiation à l'informatique, accompagnement pratique et formation aux outils digitaux.</p></article>
+  </div>
+ </div>
+</section>
+
+<section class="about" id="about">
+ <div class="container about-grid">
+  <div>
+   <div class="eyebrow" data-i="aboutEyebrow">À propos</div>
+   <h2 data-i="aboutTitle">Un partenaire fiable pour faire avancer vos projets</h2>
+   <p class="muted" data-i="aboutText">Mon approche combine polyvalence, sens du service et compétences numériques. Mon objectif : vous aider à gagner du temps, mieux organiser vos tâches et résoudre vos problèmes numériques.</p>
+  </div>
+  <div>
+   <h3 data-i="whyTitle">Pourquoi travailler avec moi ?</h3>
+   <ul class="checks">
+    <li data-i="why1">Communication en français, anglais ou malgache</li>
+    <li data-i="why2">Services adaptés à votre demande</li>
+    <li data-i="why3">Échange préalable sur le périmètre et les délais</li>
+    <li data-i="why4">Devis clair avant le début de la mission</li>
+    <li data-i="why5">Accompagnement à distance selon le projet</li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <div class="section-head">
+   <div class="eyebrow" data-i="processEyebrow">Comment ça marche</div>
+   <h2 data-i="processTitle">Simple, clair et professionnel</h2>
+  </div>
+  <div class="steps">
+   <div class="step"><b>01</b><h3 data-i="step1Title">Décrivez votre besoin</h3><p data-i="step1Text">Envoyez une demande via le formulaire.</p></div>
+   <div class="step"><b>02</b><h3 data-i="step2Title">Échangeons</h3><p data-i="step2Text">Nous précisons les objectifs, délais et livrables.</p></div>
+   <div class="step"><b>03</b><h3 data-i="step3Title">Recevez votre proposition</h3><p data-i="step3Text">Vous validez le devis avant le démarrage.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="contact" id="contact">
+ <div class="container contact-grid">
+  <div>
+   <div class="eyebrow" data-i="contactEyebrow">Parlons de votre projet</div>
+   <h2 data-i="contactTitle">Comment puis-je vous aider ?</h2>
+   <p class="muted" data-i="contactText">Présentez-moi votre besoin. Je pourrai vous répondre et discuter de la prochaine étape.</p>
+   <div class="contact-links">
+    <a class="contact-link" href="mailto:alibensaidabdallah@gmail.com">✉️ alibensaidabdallah@gmail.com</a>
+    <a class="contact-link" href="https://wa.me/261384868815" target="_blank" rel="noopener">💬 WhatsApp : +261 38 48 68 815</a>
+   </div>
+   <p class="note" data-i="responseNote">Le délai de réponse dépend de ma disponibilité. Les missions et tarifs sont confirmés après échange.</p>
+  </div>
+  <form id="requestForm">
+   <h3 data-i="formTitle">Demande de prestation</h3>
+   <label for="name" data-i="nameLabel">Votre nom</label>
+   <input id="name" name="name" autocomplete="name" required>
+   <label for="email" data-i="emailLabel">Votre e-mail</label>
+   <input id="email" name="email" type="email" autocomplete="email" required>
+   <label for="service" data-i="serviceLabel">Service recherché</label>
+   <select id="service" name="service" required>
+    <option value="" data-i="choose">Choisir un service</option>
+    <option value="Assistance virtuelle" data-i="opt1">Assistance virtuelle</option>
+    <option value="Relation client" data-i="opt2">Relation client</option>
+    <option value="Création web et support informatique" data-i="opt3">Web et informatique</option>
+    <option value="Formation numérique" data-i="opt4">Formation numérique</option>
+    <option value="Autre demande" data-i="opt5">Autre demande</option>
+   </select>
+   <label for="budget" data-i="budgetLabel">Budget indicatif (facultatif)</label>
+   <input id="budget" name="budget" placeholder="Ex. : à discuter">
+   <label for="details" data-i="detailsLabel">Décrivez votre projet</label>
+   <textarea id="details" name="details" required></textarea>
+   <button class="btn blue" type="submit" data-i="send">Préparer ma demande ↗</button>
+   <p class="note" data-i="formNote">Le bouton ouvre votre application e-mail avec votre demande préremplie. L'envoi reste à confirmer par vous.</p>
+   <p id="formStatus" class="note" role="status"></p>
+  </form>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="container footer-row">
+  <span>© <span id="year"></span> Ali Ben Said Abdallah</span>
+  <span data-i="footerText">Assistant virtuel · Services numériques · Madagascar</span>
+ </div>
+</footer>
+
+<script>
+const translations = {
+fr:{
+navServices:"Services",navAbout:"À propos",navContact:"Contact",
+eyebrow:"Votre partenaire numérique",
+headline:"Plus de temps pour votre activité. Moins de tâches à gérer.",
+intro:"Je vous accompagne dans la gestion administrative, la relation client et vos besoins numériques, à distance et selon vos priorités.",
+cta:"Demander un devis ↗",discover:"Découvrir mes services",role:"Assistant virtuel polyvalent & support numérique",
+available:"Disponible pour étudier votre projet",availability:"Chaque demande est étudiée selon vos besoins, votre calendrier et votre budget.",
+servicesEyebrow:"Mes expertises",servicesTitle:"Des services adaptés à votre activité",
+servicesIntro:"Un accompagnement flexible pour entrepreneurs, indépendants et petites entreprises.",
+s1:"Assistance virtuelle et administrative",d1:"Gestion des e-mails, organisation d'agenda, saisie de données, documents et tâches administratives.",
+s2:"Relation client et assistance",d2:"Suivi des demandes, réponses aux clients, appels et assistance à distance selon vos consignes.",
+s3:"Web et support informatique",d3:"Création de sites web, dépannage, aide aux outils numériques et accompagnement informatique.",
+s4:"Formation numérique",d4:"Initiation à l'informatique, accompagnement pratique et formation aux outils digitaux.",
+aboutEyebrow:"À propos",aboutTitle:"Un partenaire fiable pour faire avancer vos projets",
+aboutText:"Mon approche combine polyvalence, sens du service et compétences numériques. Mon objectif : vous aider à gagner du temps, mieux organiser vos tâches et résoudre vos problèmes numériques.",
+whyTitle:"Pourquoi travailler avec moi ?",why1:"Communication en français, anglais ou malgache",why2:"Services adaptés à votre demande",why3:"Échange préalable sur le périmètre et les délais",why4:"Devis clair avant le début de la mission",why5:"Accompagnement à distance selon le projet",
+processEyebrow:"Comment ça marche",processTitle:"Simple, clair et professionnel",
+step1Title:"Décrivez votre besoin",step1Text:"Envoyez une demande via le formulaire.",step2Title:"Échangeons",step2Text:"Nous précisons les objectifs, délais et livrables.",step3Title:"Recevez votre proposition",step3Text:"Vous validez le devis avant le démarrage.",
+contactEyebrow:"Parlons de votre projet",contactTitle:"Comment puis-je vous aider ?",contactText:"Présentez-moi votre besoin. Je pourrai vous répondre et discuter de la prochaine étape.",
+responseNote:"Le délai de réponse dépend de ma disponibilité. Les missions et tarifs sont confirmés après échange.",
+formTitle:"Demande de prestation",nameLabel:"Votre nom",emailLabel:"Votre e-mail",serviceLabel:"Service recherché",choose:"Choisir un service",opt1:"Assistance virtuelle",opt2:"Relation client",opt3:"Web et informatique",opt4:"Formation numérique",opt5:"Autre demande",budgetLabel:"Budget indicatif (facultatif)",detailsLabel:"Décrivez votre projet",send:"Préparer ma demande ↗",formNote:"Le bouton ouvre votre application e-mail avec votre demande préremplie. L'envoi reste à confirmer par vous.",footerText:"Assistant virtuel · Services numériques · Madagascar",subject:"Nouvelle demande de prestation",status:"Votre application e-mail va s'ouvrir."
+},
+en:{
+navServices:"Services",navAbout:"About",navContact:"Contact",
+eyebrow:"Your digital partner",headline:"More time for your business. Fewer tasks to manage.",
+intro:"I support your administrative tasks, customer relations and digital needs remotely, based on your priorities.",
+cta:"Request a quote ↗",discover:"Explore my services",role:"Virtual Assistant & Digital Support",
+available:"Available to discuss your project",availability:"Every request is reviewed according to your needs, timeline and budget.",
+servicesEyebrow:"My expertise",servicesTitle:"Services tailored to your business",
+servicesIntro:"Flexible support for entrepreneurs, freelancers and small businesses.",
+s1:"Virtual & Administrative Assistance",d1:"Email management, calendar scheduling, data entry, documents and administrative tasks.",
+s2:"Customer Support",d2:"Customer inquiries, follow-ups, calls and remote assistance based on your instructions.",
+s3:"Web & IT Support",d3:"Website creation, troubleshooting, digital tools and IT assistance.",
+s4:"Digital Training",d4:"Computer basics, practical guidance and training on digital tools.",
+aboutEyebrow:"About me",aboutTitle:"A reliable partner to move your projects forward",
+aboutText:"I combine versatility, a service-oriented approach and digital skills to help you save time, organize tasks and solve digital problems.",
+whyTitle:"Why work with me?",why1:"Communication in French, English or Malagasy",why2:"Services tailored to your request",why3:"Clear discussion of scope and deadlines",why4:"Transparent quote before work begins",why5:"Remote support depending on the project",
+processEyebrow:"How it works",processTitle:"Simple, clear and professional",
+step1Title:"Describe your needs",step1Text:"Submit a request through the form.",step2Title:"Let's discuss",step2Text:"We clarify goals, deadlines and deliverables.",step3Title:"Receive a proposal",step3Text:"Approve the quote before work starts.",
+contactEyebrow:"Let's talk about your project",contactTitle:"How can I help you?",contactText:"Tell me what you need so we can discuss the next step.",
+responseNote:"Response times depend on availability. Scope and pricing are confirmed after discussion.",
+formTitle:"Service request",nameLabel:"Your name",emailLabel:"Your email",serviceLabel:"Service needed",choose:"Select a service",opt1:"Virtual assistance",opt2:"Customer support",opt3:"Web & IT",opt4:"Digital training",opt5:"Other request",budgetLabel:"Estimated budget (optional)",detailsLabel:"Describe your project",send:"Prepare my request ↗",formNote:"This opens your email app with a prefilled message. You will need to confirm sending it.",footerText:"Virtual Assistant · Digital Services · Madagascar",subject:"New service request",status:"Your email app is opening."
+},
+mg:{
+navServices:"Tolotra",navAbout:"Momba ahy",navContact:"Fifandraisana",
+eyebrow:"Mpiara-miasa aminao amin'ny nomerika",
+headline:"Fotoana bebe kokoa ho an'ny asanao. Asa madinika vitsy kokoa hotantanana.",
+intro:"Manampy anao amin'ny raharaha administratif, fifandraisana amin'ny mpanjifa ary ny filàna nomerika aho, amin'ny alalan'ny asa lavitra.",
+cta:"Mangataka tombana ↗",discover:"Jereo ny tolotra",role:"Assistant virtuel sy fanohanana nomerika",
+available:"Vonona hiresaka momba ny tetikasanao",availability:"Hodinihina araka ny filànao, ny fotoana ary ny tetibola ny fangatahana tsirairay.",
+servicesEyebrow:"Ny fahaiza-manaoko",servicesTitle:"Tolotra mifanaraka amin'ny asanao",
+servicesIntro:"Fanohanana miovaova ho an'ny mpandraharaha sy orinasa madinika.",
+s1:"Fanampiana virtoaly sy administratif",d1:"Fitantanana mailaka, fandaminana fotoana, fampidirana angona ary antontan-taratasy.",
+s2:"Fifandraisana amin'ny mpanjifa",d2:"Valin-kafatra, fanaraha-maso fangatahana, antso ary fanampiana lavitra.",
+s3:"Tranonkala sy informatika",d3:"Fanamboarana tranonkala, famahana olana informatika ary fanampiana amin'ny fitaovana nomerika.",
+s4:"Fampiofanana nomerika",d4:"Fampidirana amin'ny informatika sy fampiofanana amin'ny fitaovana nomerika.",
+aboutEyebrow:"Momba ahy",aboutTitle:"Mpiara-miasa azo itokisana hampandroso ny tetikasanao",
+aboutText:"Atambatro ny fahaiza-manao maro, ny fahaizana manompo ary ny traikefa nomerika mba hanampiana anao hitsitsy fotoana sy handamina ny asa.",
+whyTitle:"Nahoana no hiara-miasa amiko?",why1:"Fifandraisana amin'ny teny frantsay, anglisy na malagasy",why2:"Tolotra mifanaraka amin'ny filànao",why3:"Fifanarahana mazava momba ny asa sy fe-potoana",why4:"Tombam-bidy mazava alohan'ny hanombohana",why5:"Fanampiana lavitra arakaraka ny tetikasa",
+processEyebrow:"Fomba fiasa",processTitle:"Tsotra, mazava ary matihanina",
+step1Title:"Lazao ny filànao",step1Text:"Alefaso amin'ny alalan'ny taratasy ny fangatahana.",step2Title:"Mifampiresaka",step2Text:"Faritana ny tanjona, ny fe-potoana ary ny vokatra andrasana.",step3Title:"Mahazoa tolo-kevitra",step3Text:"Ankasitraho ny tombam-bidy alohan'ny hanombohana.",
+contactEyebrow:"Andao hiresaka momba ny tetikasanao",contactTitle:"Ahoana no ahafahako manampy anao?",contactText:"Lazao amiko ny filànao mba hahafahantsika miresaka ny dingana manaraka.",
+responseNote:"Miankina amin'ny fahafahana mamaly ny fotoana famaliana. Hamarinin'ny fifampiresahana ny asa sy ny vidiny.",
+formTitle:"Fangatahana tolotra",nameLabel:"Anaranao",emailLabel:"Adiresy mailakao",serviceLabel:"Tolotra ilaina",choose:"Misafidiana tolotra",opt1:"Fanampiana virtoaly",opt2:"Fifandraisana amin'ny mpanjifa",opt3:"Tranonkala sy informatika",opt4:"Fampiofanana nomerika",opt5:"Fangatahana hafa",budgetLabel:"Tetibola vinavinaina (tsy voatery)",detailsLabel:"Farito ny tetikasanao",send:"Omano ny fangatahana ↗",formNote:"Hanokatra ny mailakao ity bokotra ity miaraka amin'ny hafatra efa voaomana. Ianao no manamarina ny fandefasana.",footerText:"Assistant virtuel · Tolotra nomerika · Madagasikara",subject:"Fangatahana tolotra vaovao",status:"Hisokatra ny mailakao."
+}
+};
+
+const lang = document.getElementById("language");
+function setLanguage(code){
+ const t=translations[code]||translations.fr;
+ document.documentElement.lang=code;
+ document.querySelectorAll("[data-i]").forEach(el=>{
+  const key=el.dataset.i;
+  if(t[key]) el.textContent=t[key];
+ });
+ lang.value=code;
+}
+lang.addEventListener("change",e=>setLanguage(e.target.value));
+document.getElementById("menu").addEventListener("click",()=>{
+ document.getElementById("navlinks").classList.toggle("open");
+});
+document.querySelectorAll("#navlinks a").forEach(a=>a.addEventListener("click",()=>{
+ document.getElementById("navlinks").classList.remove("open");
+}));
+document.getElementById("year").textContent=new Date().getFullYear();
+
+document.getElementById("requestForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const f=new FormData(e.target);
+ const t=translations[lang.value]||translations.fr;
+ const body=[
+  "Nom / Name: "+f.get("name"),
+  "Email: "+f.get("email"),
+  "Service: "+document.getElementById("service").selectedOptions[0].text,
+  "Budget: "+(f.get("budget")||"Non précisé"),
+  "",
+  "Projet / Project:",
+  f.get("details")
+ ].join("\n");
+ document.getElementById("formStatus").textContent=t.status;
+ window.location.href="mailto:alibensaidabdallah@gmail.com?subject="+
+  encodeURIComponent(t.subject)+"&body="+encodeURIComponent(body);
+});
+</script>
+</body>
+</html>
